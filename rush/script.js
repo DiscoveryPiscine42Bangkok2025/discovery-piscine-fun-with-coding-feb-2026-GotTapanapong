@@ -71,6 +71,16 @@ $(document).ready(function() {
     $('#modalClose, #modalCancelBtn').click(function() {
         closeModal();
     });
+    // Navbar person buttons
+    $('#nav-person1').click(function(e) {
+        e.preventDefault();
+        showProfile(1);
+    });
+
+    $('#nav-person2').click(function(e) {
+        e.preventDefault();
+        showProfile(2);
+    });
 
     // Navigation with Modal
     $('#nav-about').click(function(e) {
