@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    .container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #calForm {
+        width: 300px;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px 30px;
+        border: 1px solid gray;
+        border-radius: 20px;
+        box-shadow: 12px 11px 35px -8px rgb(169, 169, 169);
+    }
+
+    #val1, #val2, #op {
+        height: 30px;
+        border-radius: 8px;
+        padding: 0px 24px;
+        border: 1px solid gray;
+    }
+
+    #op {
+        cursor: pointer;
+    }
+
+    #calBtn {
+        width: 300px;
+        height: 40px;
+        border-radius: 12px;
+        border: 1px solid gray;
+        background-color: rgb(137, 45, 183);
+        color: white;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+    <section class="container">
+        <form id="calForm">
+            <h1> Calculator </h1>
+            <input id='val1' type="text" value="" placeholder="enter a number" required>
+            <select id="op">
+                <option value="+"> + </option>
+                <option value="-"> - </option>
+                <option value="*"> * </option>
+                <option value="/"> / </option>
+                <option value="%"> % </option>
+            </select>
+            <input id='val2' type="text" value="" placeholder="enter a number" required>
+            <button id='calBtn' type="submit">Try me!</button>
+        </form>
+    </section>
+</body>
+<script>
+    const val1 = document.getElementById("val1");
+    const val2 = document.getElementById("val2");
+    const op = document.getElementById("op");
+    const calForm = document.getElementById("calForm");
+
+    setInterval(() => {
+      alert("Please, use me...");
+    }, 30000);
+
+    calForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        let value1 = val1.value;
+        let value2 = val2.value;
+        let opar = op.value;
+
+        if (isNaN(value1) || isNaN(value2)) {
+            alert("Error :(");
+            console.log("Error :(");
+            val1.value = "";
+            val2.value = "";
+            op.value = "+";
+            return;
+        }
+
+        value1 = parseFloat(value1);
+        value2 = parseFloat(value2);
+
+        if (value1 < 0 || value2 < 0) {
+            alert("Error :()");
+            console.log("Error :(");
+            val1.value = "";
+            val2.value = "";
+            op.value = "+";
+            return;
+        }
+
+        if ((opar == "/" || opar == "%") && (value1 == 0 || value2 == 0)) {
+            alert("It's over 9000!");
+            console.log("It's over 9000!");
+            val1.value = "";
+            val2.value = "";
+            op.value = "+";
+            return;
+        }
+
+        console.log(eval(`${value1} ${opar} ${value2}`));
+        alert("Result : " + eval(`${value1} ${opar} ${value2}`));
+
+        val1.value = "";
+        val2.value = "";
+        op.value = "+";
+    });
+</script>
+</html>
