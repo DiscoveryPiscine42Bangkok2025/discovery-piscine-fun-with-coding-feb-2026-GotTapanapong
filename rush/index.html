@@ -1,0 +1,98 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Hub - Professional Profiles</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <h1 id="logo">🌟 Profile Hub</h1>
+        <ul>
+            <li><a id="nav-home">Home</a></li>
+            <li><a id="nav-about">About</a></li>
+            <li><a id="nav-contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- ===== HOME PAGE ===== -->
+    <div id="homePage" class="page active">
+        <div class="home-container">
+            <div class="home-header">
+                <h2>เรียนรู้เกี่ยวกับทีมของเรา</h2>
+                <p>คลิกที่การ์ดเพื่อดูข้อมูลละเอียดของแต่ละสมาชิก</p>
+            </div>
+
+            <div class="cards-grid">
+                <!-- Card 1 -->
+                <div class="card profile-card" data-id="1">
+                    <img src="img/tpongbor.jpg" alt="Person 1" class="card-image">
+                    <div class="card-content">
+                        <h3>ฐาปนพงศ์ พงษ์บริบูรณ์</h3>
+                        <div class="position">Multimedia</div>
+                        <p>นักศึกษาแขนงมัลติมีเดียที่มีความหลงใหลในแมว</p>
+                        <button class="btn btn-primary view-profile">ดูข้อมูลเพิ่มเติม</button>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card profile-card" data-id="2">
+                    <img src="img/nsutham.png" alt="Person 2" class="card-image">
+                    <div class="card-content">
+                        <h3>นัตชัย สุธรรม</h3>
+                        <div class="position">Multimedia</div>
+                        <p>วันๆของผมในแขนงมัลติก็ประมาณนี้แหล่ะ</p>
+                        <button class="btn btn-primary view-profile">ดูข้อมูลเพิ่มเติม</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DETAIL PAGE ===== -->
+    <div id="detailPage" class="page">
+        <div class="detail-container">
+            <button class="back-btn" id="backBtn">← กลับไปหน้าแรก</button>
+
+            <div class="detail-card">
+                <div class="detail-header">
+                    <div>
+                        <img id="profileImage" src="" alt="Profile" class="detail-image">
+                    </div>
+                    <div class="detail-info">
+                        <h2 id="profileName"></h2>
+                        <div class="position" id="profilePosition"></div>
+                        <p id="profileBio"></p>
+
+                        <div class="info-section">
+                            <h3>🎯 Hobby</h3>
+                            <ul class="info-list" id="hobbyList"></ul>
+                        </div>
+
+                        <div class="social-links" id="socialLinksList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== MODAL POPUP ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">×</button>
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-secondary" id="modalCancelBtn">ปิด</button>
+                <button class="modal-btn modal-btn-primary" id="modalConfirmBtn" style="display: none;">ตกลง</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
